@@ -27,4 +27,6 @@ urlpatterns = [
     url(r'^users/(?P<pk>[0-9]+)/$', user_views.UserDetail.as_view()),
     url(r'^jams/$', jam_views.JamList.as_view()),
     url(r'^jams/(?P<pk>[0-9]+)/$', jam_views.JamDetail.as_view()),
+    url(r'^events/$', jam_views.EventList.as_view()),
+    url(r'^events/(?P<pk>[0-9]+)/$', jam_views.EventDetail.as_view()),
 ]

@@ -10,4 +10,4 @@ class JamSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ('id', 'name', 'date', 'time', 'desciption', 'jam')
+        fields = ('id', 'name', 'date', 'time', 'description', 'jam')
