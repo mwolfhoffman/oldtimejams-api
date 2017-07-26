@@ -7,7 +7,6 @@ class Jam(models.Model):
     city = models.CharField(max_length=250)
     state = models.CharField(max_length=250)
     admins = models.ManyToManyField(User)
-
 class Event(models.Model):
     name = models.CharField(max_length=250)
     date = models.DateField()

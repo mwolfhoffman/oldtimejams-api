@@ -1,3 +1,5 @@
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAuthenticatedOrReadOnly
+
 from jams.models import Jam, Event
 from django.shortcuts import get_object_or_404
 from django.http import Http404
@@ -7,8 +9,8 @@ from rest_framework.response import Response
 from rest_framework import status
 
 ##########  JAMS  ###########################3
-
 class JamList(APIView):
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     def get(self, request, format=None):
         jams = Jam.objects.all()
         serializer = JamSerializer(jams, many=True)
@@ -27,9 +29,7 @@ class JamList(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class JamDetail(APIView):
-    """
-    Retrieve, update or delete a user instance.
-    """
+    permission_classes = (IsAuthenticatedOrReadOnly,)
     def get_object(self, pk):
         try:
             return Jam.objects.get(pk=pk)
